@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>影片與聲音情緒辨識 App | W16 智慧生活科技應用</title>
+    <meta
+      name="description"
+      content="依據 W16 教學簡報製作的專題網站：用 AI 協作開發影片與聲音情緒辨識 App。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首頁">
+        <span class="brand-mark">AI</span>
+        <span>情緒辨識專題</span>
+      </a>
+      <nav class="nav" aria-label="主選單">
+        <a href="#concept">概念</a>
+        <a href="#workflow">流程</a>
+        <a href="#demo">Demo</a>
+        <a href="#ethics">倫理</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">W16 智慧生活科技應用</p>
+          <h1>用 AI 協作開發影片與聲音情緒辨識 App</h1>
+          <p>
+            將本週簡報的 Cowork 精神轉化成一個可展示的專題網站：從影片連結或上傳檔案開始，
+            透過聲音與影像特徵分析情緒，最後用圖表、摘要與提醒協助使用者理解結果。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#demo">體驗互動模擬</a>
+            <a class="button ghost" href="#workflow">查看開發流程</a>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <img src="./assets/slides/cover.png" alt="AI 協作開發影片情緒辨識網頁投影片封面" />
+        </figure>
+      </section>
+
+      <section id="concept" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Project Goal</p>
+          <h2>專題目標</h2>
+          <p>
+            讓 AI 不只是聊天工具，而是共同完成需求拆解、程式建置、除錯與成果整理的工程夥伴。
+          </p>
+        </div>
+        <div class="goal-grid">
+          <article>
+            <span class="icon">01</span>
+            <h3>影片來源彈性</h3>
+            <p>支援上傳 MP4 或輸入 YouTube 連結，建立可擴充的多媒體分析入口。</p>
+          </article>
+          <article>
+            <span class="icon">02</span>
+            <h3>雙模態辨識</h3>
+            <p>拆分影像與聲音兩條分析線，分別推估表情、語音情緒與整體趨勢。</p>
+          </article>
+          <article>
+            <span class="icon">03</span>
+            <h3>即時圖表呈現</h3>
+            <p>把模型輸出整理成百分比、時間軸與重點摘要，降低判讀門檻。</p>
+          </article>
+          <article>
+            <span class="icon">04</span>
+            <h3>雲端展示</h3>
+            <p>以 Gradio 與 Hugging Face Space 為原型部署平台，快速完成公開展示。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow" class="section split">
+        <div>
+          <p class="eyebrow">Cowork Process</p>
+          <h2>從一句需求到可用 App</h2>
+          <ol class="timeline">
+            <li><strong>需求說清楚：</strong>描述輸入來源、分析結果、圖表與部署需求。</li>
+            <li><strong>請 AI 寫程式：</strong>產生 Gradio 介面、影音處理、模型推論與結果視覺化。</li>
+            <li><strong>建立 Space：</strong>準備 app.py、requirements.txt、README.md 並上傳。</li>
+            <li><strong>遇錯修正：</strong>處理套件版本、YouTube 下載限制、Cookie 與模型載入問題。</li>
+            <li><strong>成果展示：</strong>整理畫面、結果圖表、模型限制與倫理提醒。</li>
+          </ol>
+        </div>
+        <figure class="slide-card">
+          <img src="./assets/slides/workflow.png" alt="整體開發流程投影片" />
+        </figure>
+      </section>
+
+      <section class="section architecture">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture</p>
+          <h2>三條線的程式架構</h2>
+        </div>
+        <div class="architecture-grid">
+          <article>
+            <h3>影像線</h3>
+            <p>影片切幀，擷取臉部或表情特徵，輸出每段時間的視覺情緒分布。</p>
+          </article>
+          <article>
+            <h3>聲音線</h3>
+            <p>抽取音訊並切片，分析語調、能量與頻譜特徵，推估聲音情緒。</p>
+          </article>
+          <article>
+            <h3>輸出線</h3>
+            <p>整合兩種模型結果，產生統計圖、摘要文字與可下載報告。</p>
+          </article>
+        </div>
+        <figure class="wide-image">
+          <img src="./assets/slides/architecture.png" alt="影片與聲音情緒辨識程式架構投影片" />
+        </figure>
+      </section>
+
+      <section id="demo" class="section demo-section">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive Demo</p>
+          <h2>情緒辨識結果模擬</h2>
+          <p>此區以網站前端模擬模型輸出，呈現正式 App 完成後的操作與結果樣貌。</p>
+        </div>
+        <div class="demo-layout">
+          <form class="demo-panel" id="analysisForm">
+            <label>
+              影片來源
+              <input id="sourceInput" type="url" placeholder="https://www.youtube.com/watch?v=..." />
+            </label>
+            <label>
+              分析模式
+              <select id="modeInput">
+                <option value="balanced">影像 + 聲音綜合</option>
+                <option value="visual">偏重影像表情</option>
+                <option value="audio">偏重聲音語調</option>
+              </select>
+            </label>
+            <button class="button primary" type="submit">產生分析結果</button>
+            <p class="hint">可直接按下按鈕產生示範資料，不需要真的上傳影片。</p>
+          </form>
+          <div class="result-panel" aria-live="polite">
+            <div class="result-topline">
+              <div>
+                <span class="label">主要情緒</span>
+                <strong id="primaryEmotion">期待</strong>
+              </div>
+              <div>
+                <span class="label">信心分數</span>
+                <strong id="confidence">82%</strong>
+              </div>
+            </div>
+            <div class="bars" id="bars"></div>
+            <p id="summary" class="summary">
+              影片整體呈現正向且專注的情緒輪廓，適合用於學習成果展示或使用者回饋分析。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split">
+        <figure class="slide-card">
+          <img src="./assets/slides/result.png" alt="AI 影片情緒辨識成果展示投影片" />
+        </figure>
+        <div>
+          <p class="eyebrow">Output</p>
+          <h2>成果畫面應包含什麼</h2>
+          <ul class="check-list">
+            <li>情緒百分比長條圖，快速看出喜悅、悲傷、憤怒、驚訝等分布。</li>
+            <li>影片預覽與模型摘要，讓使用者知道分析對應的來源。</li>
+            <li>分析限制與可能誤差，避免把 AI 結果視為絕對判斷。</li>
+            <li>可部署、可分享、可反覆修改的 Hugging Face Space 專案。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="ethics" class="section ethics">
+        <div class="section-heading">
+          <p class="eyebrow">AI Responsibility</p>
+          <h2>結語與倫理提醒</h2>
+        </div>
+        <div class="ethics-grid">
+          <article>
+            <h3>情緒辨識不是事實測謊</h3>
+            <p>模型只能推估影像與聲音特徵，不能取代人的脈絡理解與同理判斷。</p>
+          </article>
+          <article>
+            <h3>保護個資與授權</h3>
+            <p>分析影片前需確認來源合法，避免上傳未經同意的人臉、聲音或私人內容。</p>
+          </article>
+          <article>
+            <h3>AI 是協作夥伴</h3>
+            <p>真正的能力不只是會用工具，而是能提出好問題、驗證結果並負責任地修正。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>智慧生活科技應用 W16 作業 | 影片與聲音情緒辨識 App 專題網站</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
