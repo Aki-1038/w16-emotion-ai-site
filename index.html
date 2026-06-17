@@ -125,8 +125,8 @@
         <div class="demo-layout">
           <form class="demo-panel" id="analysisForm">
             <label>
-              影片來源
-              <input id="sourceInput" type="url" placeholder="https://www.youtube.com/watch?v=..." />
+              上傳影片或音訊
+              <input id="mediaInput" type="file" accept="video/*,audio/*" />
             </label>
             <label>
               分析模式
@@ -136,23 +136,27 @@
                 <option value="audio">偏重聲音語調</option>
               </select>
             </label>
-            <button class="button primary" type="submit">產生分析結果</button>
-            <p class="hint">可直接按下按鈕產生示範資料，不需要真的上傳影片。</p>
+            <button class="button primary" type="submit">開始真實分析</button>
+            <p class="hint" id="statusText">
+              請選擇 MP4、MOV、WEBM、MP3 或 WAV。此版本直接在瀏覽器分析，不會上傳檔案。
+            </p>
+            <video id="mediaPreview" class="media-preview" controls playsinline></video>
+            <canvas id="analysisCanvas" hidden></canvas>
           </form>
           <div class="result-panel" aria-live="polite">
             <div class="result-topline">
               <div>
                 <span class="label">主要情緒</span>
-                <strong id="primaryEmotion">期待</strong>
+                <strong id="primaryEmotion">等待上傳</strong>
               </div>
               <div>
                 <span class="label">信心分數</span>
-                <strong id="confidence">82%</strong>
+                <strong id="confidence">--</strong>
               </div>
             </div>
             <div class="bars" id="bars"></div>
             <p id="summary" class="summary">
-              影片整體呈現正向且專注的情緒輪廓，適合用於學習成果展示或使用者回饋分析。
+              上傳媒體後，系統會以聲音能量、語調變化、畫面亮度、色彩與動作幅度進行情緒推估。
             </p>
           </div>
         </div>
